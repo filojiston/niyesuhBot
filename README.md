@@ -8,7 +8,8 @@
   - roll
   - say
   - coinflip
-  - clear
+  - clear (you must've have administrator rights to use this command)
+  - penis
   
   # only use for given-id(s) commands:
   - load
