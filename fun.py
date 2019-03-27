@@ -113,7 +113,36 @@ class Fun:
         result = ', '.join(result_list)
         await self.client.say('{}, results.. -> {}'.format(ctx.message.author.mention, result))
 
+	@commands.command(
+        pass_context = True,
+        name = 'penis'
+    )
+    @commands.cooldown(1, 3)
+    async def _penis(self, ctx):
+        if ctx.message.mentions.__len__() == 0:
+            user = ctx.message.author
+        elif ctx.message.mentions.__len__() != 1:
+             await self.client.say('Please mention just 1 user.', delete_after = 3)
+             return
+        else:
+            user = ctx.message.mentions[0]
 
+        penis_size = random.randint(1, 40)
+        if penis_size >= 21:
+            penis_size = random.randint(1, 40)
+        penis = '**' + 'Ɛ' + ('=' * penis_size) + '>' + '**'
+        if 1 <= penis_size <= 13:
+            await self.client.say('{}, here is your little pipi - it\'s just {}cm\n\n{}'.format(
+                user.mention, penis_size,  penis))
+        elif 14 <= penis_size <= 20:
+            await self.client.say('{}, you\'ve got nice normal penis looks like that - it\'s {}cm\n\n{}'.format(
+                user.mention, penis_size, penis))
+        elif 21 <= penis_size <= 30:
+            await self.client.say('{}, well, gotta say that your dick is reaaaally big mate - it\'s {}cm\n\n{}'.format(
+                user.mention, penis_size, penis))
+        else:
+            await self.client.say('{}, it\'s {}cm!  you monster :o\n\n{}'.format(
+                user.mention, penis_size, penis))
 
 def setup(client):
     client.add_cog(Fun(client))
